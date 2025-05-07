@@ -12,10 +12,12 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "mobx": "^6.13.7",
+    "mobx-react-lite": "^4.1.0",
     "react": "^19.1.0",
-    "react-d3-tree": "^3.6.6",
     "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1"
+    "react-family-tree": "^3.2.0",
+    "react-scripts": "5.0.1",
+    "react-zoom-pan-pinch": "^3.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
