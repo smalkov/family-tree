@@ -1,5 +1,7 @@
 import { MainTree } from "./components/MainTree";
 
+import "./styles.css";
+
 function App() {
   return (
     <div>
