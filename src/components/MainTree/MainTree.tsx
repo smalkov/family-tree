@@ -4,8 +4,8 @@ import { FamilyNode } from "../FamilyNode";
 import { TransformWrapper, TransformComponent, useControls } from "react-zoom-pan-pinch";
 import styles from "./MainTree.module.css";
 
-const HEIGHT = 80;
-const WIDTH = 80;
+const HEIGHT = 100;
+const WIDTH = 100;
 const myID = "0";
 export const MainTree = () => {
   const [rootId, setRootId] = useState(myID);
@@ -4784,5 +4784,33 @@ export const MainTree = () => {
     },
   ];
 
-  return <div className={styles.wrapper}>sd</div>;
+  return (
+    <div className={styles.root}>
+      <TransformWrapper>
+        <TransformComponent wrapperClass={styles.wrapper} contentClass={styles.wrapper}>
+          <ReactFamilyTree
+            nodes={nodes}
+            rootId={rootId}
+            width={WIDTH}
+            height={HEIGHT}
+            className={styles.tree}
+            renderNode={(node) => (
+              <FamilyNode
+                key={node.id}
+                node={node}
+                isRoot={node.id === rootId}
+                onSubClick={setRootId}
+                // openDialog={openDialog}
+                style={{
+                  width: WIDTH,
+                  height: HEIGHT,
+                  transform: `translate(${node.left * (WIDTH / 2)}px, ${node.top * (HEIGHT / 2)}px)`,
+                }}
+              />
+            )}
+          />
+        </TransformComponent>
+      </TransformWrapper>
+    </div>
+  );
 };

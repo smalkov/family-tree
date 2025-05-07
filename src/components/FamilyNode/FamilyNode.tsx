@@ -1,7 +1,7 @@
 export function FamilyNode({ node, isRoot, onSubClick, openDialog, style, markHolucost }: any) {
   return (
     <div>
-      <div onClick={() => openDialog(node)}>
+      <div>
         <div>
           <div>{node.name} </div>
           <div>
