@@ -2,7 +2,7 @@
   position: absolute;
   display: flex;
   padding: 16px;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 
@@ -18,6 +18,7 @@
 
 .inner .name {
   font-weight: bold;
+  font-size: 12px;
 }
 
 .male {
@@ -45,29 +46,19 @@
   text-align: center;
 }
 
-.sub.male {
-  background: #fdaed8;
-}
-
-.sub.female {
-  background: #a4ecff;
-}
-
-.holucost {
-  background-color: #efefef !important;
+.content {
+  position: relative;
+  width: 100%;
 }
 
 .Before {
   background-color: #efefef !important;
 }
 
-.content {
-  position: relative;
-  width: 100%;
+.sub.male {
+  background: #fdaed8;
 }
 
-.startOfDavid {
-  position: absolute;
-  top: 0;
-  left: 0;
+.sub.female {
+  background: #a4ecff;
 }
