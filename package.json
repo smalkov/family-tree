@@ -1,18 +1,42 @@
 {
   "name": "family-tree",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "start": "react-scripts start"
   },
   "author": "Malkov S.Y.",
   "license": "ISC",
   "dependencies": {
     "mobx": "^6.13.7",
-    "react": "^19.1.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-family-tree": "^3.2.0",
+    "react-scripts": "5.0.1",
+    "react-zoom-pan-pinch": "^3.7.0"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.0",
+    "css-loader": "^7.1.2",
+    "typescript": "^5.8.3",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": ".",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "types": ["node"],
+    "strict": true,
+    "typeRoots": ["./node_modules/@types"],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "include": ["src/**/*", "tests/**/*", "./global.d.ts"]
+}
