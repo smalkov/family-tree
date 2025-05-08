@@ -17,6 +17,7 @@
     "@babel/preset-react": "^7.10.4",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
     "babel-preset-es2015": "^6.24.1",
     "clsx": "^2.1.1",

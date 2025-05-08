@@ -4,6 +4,8 @@ import { toJS } from "mobx";
 import ReactFamilyTree from "react-family-tree";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import calcTree from "relatives-tree";
+import { Dialog, DialogTitle, DialogContent, DialogContentText, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 import styles from "./MainTree.module.css";
 import { FamilyNode } from "../FamilyNode";
@@ -22,6 +24,10 @@ const myID = "I0000";
 const MainTreeProto = ({ familyTreeState }: any) => {
   const [rootId, setRootId] = React.useState(myID);
   const { tree, isLoading } = familyTreeState;
+  const [selected, setSelected] = useState<any>(null);
+
+  const handleNodeClick = (n: any) => setSelected(n);
+  const handleClose = () => setSelected(null);
 
   if (isLoading) {
     return <div style={{ textAlign: "center", marginTop: "100px" }}>Загрузка данных...</div>;
@@ -61,7 +67,7 @@ const MainTreeProto = ({ familyTreeState }: any) => {
                   onSubClick={(id) => {
                     setRootId(id);
                   }}
-                  handleNodeClick={(node) => console.log("click", node)}
+                  handleNodeClick={handleNodeClick}
                   style={{
                     width: WIDTH,
                     height: HEIGHT,
@@ -73,6 +79,27 @@ const MainTreeProto = ({ familyTreeState }: any) => {
           />
         </TransformComponent>
       </TransformWrapper>
+      <Dialog open={!!selected} onClose={handleClose} maxWidth="sm" fullWidth>
+        <DialogTitle sx={{ m: 0, p: 2 }}>
+          {selected?.name ?? selected?.id}
+          <IconButton aria-label="close" onClick={handleClose} sx={{ position: "absolute", right: 8, top: 8 }}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent dividers>
+          <DialogContentText component="div">
+            <p>
+              <strong>ID:</strong> {selected?.id}
+            </p>
+            <p>
+              <strong>Gender:</strong> {selected?.gender}
+            </p>
+            <p>
+              <strong>Name:</strong> {selected?.name}
+            </p>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
     </Viewport>
   );
 };
