@@ -45,8 +45,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "static/family-tree.gramps",
-          to: "static",
+          from: "static/data/family-tree.gramps",
+          to: "static/data",
         },
       ],
     }),

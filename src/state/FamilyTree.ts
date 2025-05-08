@@ -218,7 +218,7 @@ export class FamilyTree {
     try {
       this.isLoading = true;
 
-      const xml = await fetch("./family-tree.gramps").then((r) => {
+      const xml = await fetch("./static/data/family-tree.gramps").then((r) => {
         return r.text();
       });
 
