@@ -26,7 +26,12 @@ const MainTreeProto = ({ familyTreeState }: any) => {
   if (isLoading) {
     return <div style={{ textAlign: "center", marginTop: "100px" }}>Загрузка данных...</div>;
   }
-  const { canvas }: any = calcTree(tree as any, { rootId: myID });
+
+  if (!tree?.length) {
+    return <div style={{ textAlign: "center", marginTop: "100px" }}>Нет данных</div>;
+  }
+
+  const { canvas } = calcTree(tree, { rootId: myID });
 
   console.log("tree", toJS(tree));
 
