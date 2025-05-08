@@ -31,7 +31,7 @@ const MainTreeProto = ({ familyTreeState }: any) => {
     return <div style={{ textAlign: "center", marginTop: "100px" }}>Нет данных</div>;
   }
 
-  const { canvas } = calcTree(tree, { rootId: myID });
+  const { canvas } = calcTree(tree, { rootId: rootId });
 
   console.log("tree", toJS(tree));
 
