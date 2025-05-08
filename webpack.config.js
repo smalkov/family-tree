@@ -8,15 +8,13 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "./",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, "index.html"),
-    },
-    compress: true,
+    static: path.resolve(__dirname, "dist"),
     port: 9000,
   },
   module: {
@@ -26,12 +24,16 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+            presets: [
+              "@babel/preset-env",
+              ["@babel/preset-react", { runtime: "automatic" }],
+              "@babel/preset-typescript",
+            ],
           },
         },
       },
@@ -46,7 +48,7 @@ module.exports = {
       patterns: [
         {
           from: "static/data/family-tree.gramps",
-          to: "static/data",
+          to: "./static",
         },
       ],
     }),
