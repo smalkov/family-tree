@@ -21,11 +21,11 @@
   font-size: 12px;
 }
 
-.male {
+.M {
   background: #a4ecff;
 }
 
-.female {
+.F {
   background: #fdaed8;
 }
 
@@ -55,10 +55,10 @@
   background-color: #efefef !important;
 }
 
-.sub.male {
+.sub.M {
   background: #fdaed8;
 }
 
-.sub.female {
+.sub.F {
   background: #a4ecff;
 }
