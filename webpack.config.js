@@ -8,20 +8,31 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "./",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   devServer: {
-    static: path.resolve(__dirname, "dist"),
+    static: path.resolve(__dirname, "./dist"),
     port: 9000,
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              esModule: true,
+              modules: {
+                namedExport: false,
+                localIdentName: "[name]_[local]__[hash:base64:5]",
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|tsx)$/,

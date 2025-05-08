@@ -21,11 +21,11 @@
   font-size: 12px;
 }
 
-.M {
+.m {
   background: #a4ecff;
 }
 
-.F {
+.f {
   background: #fdaed8;
 }
 
@@ -55,10 +55,10 @@
   background-color: #efefef !important;
 }
 
-.sub.M {
+.sub.m {
   background: #fdaed8;
 }
 
-.sub.F {
+.sub.f {
   background: #a4ecff;
 }

@@ -49,7 +49,7 @@ export class FamilyTree {
       const handle = p.getAttribute("handle")!; // всегда есть
       const id = p.getAttribute("id") || handle;
       const genderText = p.querySelector("gender")?.textContent?.trim();
-      const gender: "M" | "F" | "U" = genderText === "M" ? "M" : genderText === "F" ? "F" : "U";
+      const gender: "m" | "f" | "u" = genderText === "M" ? "m" : genderText === "F" ? "f" : "u";
       const node: PartialNode = {
         id,
         gender,
@@ -124,11 +124,8 @@ export class FamilyTree {
       });
 
       const nodes = await this.parseGrampsXml(xml);
-      console.log("nodes", nodes);
 
       this.setTree(nodes);
-
-      console.log("tree in store", this.tree);
     } catch (err) {
       console.log("FamilyTree getTree error:", err);
     } finally {
