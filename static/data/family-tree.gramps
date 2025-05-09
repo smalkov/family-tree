@@ -3,7 +3,7 @@
 "http://gramps-project.org/xml/1.7.2/grampsxml.dtd">
 <database xmlns="http://gramps-project.org/xml/1.7.2/">
   <header>
-    <created date="2025-05-08" version="6.0.1"/>
+    <created date="2025-05-09" version="6.0.1"/>
     <researcher>
     </researcher>
   </header>
@@ -28,7 +28,7 @@
     </event>
   </events>
   <people>
-    <person handle="_fe2721522f77327047af278832f" change="1746706737" id="I0000">
+    <person handle="_fe2721522f77327047af278832f" change="1746780943" id="I0000">
       <gender>M</gender>
       <name type="Birth Name">
         <first>Сергей</first>
@@ -37,7 +37,6 @@
       </name>
       <eventref hlink="_fe2d88123785eb8e936c9c922b7" role="Primary"/>
       <childof hlink="_fe2d813732831fe3c879ce259b5"/>
-      <childof hlink="_fe2de4c7b0b6b1e56ed34da4b12"/>
       <parentin hlink="_fe2d956e428416411148338b18e"/>
     </person>
     <person handle="_fe2721b63f166fcfb79932235ed" change="1746707476" id="I0001">
@@ -339,7 +338,7 @@
       </name>
       <parentin hlink="_fe2de3b25cf5c281178064c6d45"/>
     </person>
-    <person handle="_fe2de469a9d2cdcc8ca0c8ec255" change="1746706939" id="I0033">
+    <person handle="_fe2de469a9d2cdcc8ca0c8ec255" change="1746780943" id="I0033">
       <gender>M</gender>
       <name type="Birth Name">
         <first>Алексей</first>
@@ -535,12 +534,11 @@
       <mother hlink="_fe2dde238fc49ce10cd5756bb8b"/>
       <childref hlink="_fe2de341a21b6aedfcc3fa5e59"/>
     </family>
-    <family handle="_fe2de4c7b0b6b1e56ed34da4b12" change="1746706737" id="F0016">
+    <family handle="_fe2de4c7b0b6b1e56ed34da4b12" change="1746780943" id="F0016">
       <rel type="Разведены"/>
       <father hlink="_fe2de4e45635079cce9d0510bff"/>
       <mother hlink="_fe2d826505f4a9fc4325cc91120"/>
       <childref hlink="_fe2de469a9d2cdcc8ca0c8ec255"/>
-      <childref hlink="_fe2721522f77327047af278832f"/>
     </family>
     <family handle="_fe2de64fa7539812442dab4dc9f" change="1746706859" id="F0017">
       <rel type="Разведены"/>
