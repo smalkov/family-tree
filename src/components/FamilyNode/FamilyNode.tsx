@@ -1,5 +1,6 @@
 import classNames from "clsx";
-
+import { IconButton } from "@mui/material";
+import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
 interface IProps {
   node: any;
   isRoot: boolean;
@@ -19,25 +20,29 @@ export const FamilyNode = ({ node, isRoot, onSubClick, handleNodeClick, style }:
       >
         <div className={styles.content}>
           <div className={styles.name}>{node.name}</div>
+          <div className={styles.name}>{node.surname}</div>
+          <div className={styles.name}>{node.patronymic}</div>
+          {node.surnameTaken && <div className={styles.name}>({node.surnameTaken})</div>}
           <div className={styles.dates}>
             {node.age ? <span>{node.age}</span> : null}
+            {node.marriage ? <span>{node.marriage}</span> : null}
             <br />
-            {node.birt_date}
-            {node.deat_date ? `- ${node.deat_date}` : ""}
+            {node.birthDate}
+            {node.deathDate ? `- ${node.deathDate}` : ""}
           </div>
-          {/* <div className={styles.dates}>
-            {node.birt_hebdate} - {node.deat_hebdate}
-          </div> */}
           {node.birt_place} - {node.deat_place}
         </div>
         {node.hasSubTree && node.id && (
-          <div
-            className={classNames(styles.sub, styles[node.gender])}
-            onClick={(e) => {
-              e.stopPropagation();
-              onSubClick(node.id);
-            }}
-          />
+          <div className={styles.sub}>
+            <IconButton
+              onClick={(e) => {
+                e.stopPropagation();
+                onSubClick(node.id);
+              }}
+            >
+              <AccountTreeOutlinedIcon />
+            </IconButton>
+          </div>
         )}
       </div>
     </div>

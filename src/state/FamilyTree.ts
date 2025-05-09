@@ -6,6 +6,11 @@ const R = (id: string): Omit<Relation, "type"> => ({ id });
 
 interface Node extends TreeNode {
   notes?: any[];
+  birthDate?: string;
+  deathDate?: string;
+  marriage?: string;
+  patronymic?: string;
+  surnameGiven?: string;
 }
 
 const toArray = <T>(x: T | T[] | undefined): T[] => (Array.isArray(x) ? x : x ? [x] : []);
@@ -35,6 +40,7 @@ export class FamilyTree {
     const people = toArray(db.database.people.person);
     const families = toArray(db.database.families.family);
     const notes = toArray(db.database.notes.note);
+    const events = toArray(db.database.events.event);
 
     const handleToId = new Map<string, string>();
     const idToHandle = new Map<string, string>();
@@ -92,27 +98,43 @@ export class FamilyTree {
       const first = person.name.first as string;
 
       let surname = "";
+      let patronymic = "";
+      let surnameTaken = "";
       if (Array.isArray(person.name.surname)) {
         // ищем derivation === 'Given', иначе берём первое значение
+        const taken = person.name.surname.find((s: any) => s.derivation === "Taken");
         const given = person.name.surname.find((s: any) => s.derivation === "Given");
-        surname = (given?.["#text"] ?? person.name.surname[0]["#text"]) as string;
+        const patron = person.name.surname.find((s: any) => s.derivation === "Patronymic");
+        surname = (given?.["#text"] ?? "") as string;
+        surnameTaken = (taken?.["#text"] ?? "") as string;
+        patronymic = patron?.["#text"] ?? "";
       } else if (typeof person.name.surname === "object") {
         surname = person.name.surname["#text"] as string;
       } else {
         surname = person.name.surname as string;
       }
 
+      const eventsForPerson = events.find((note) => {
+        return note.handle === person?.eventref?.hlink;
+      });
+
       return {
         id: person.id,
         gender: (person.gender ?? "").toLowerCase() as Gender,
-        name: `${first} ${surname}`.trim(),
+        name: first,
+        surname,
+        patronymic,
+        surnameTaken,
         parents: uniq(parentsHandles).map((id) => ({ id: handleToId.get(id)! })),
         children: uniq(childrenHandles).map((id) => ({ id: handleToId.get(id)! })),
         siblings: uniq(siblingsHandles).map((id) => ({ id: handleToId.get(id)! })),
         spouses: uniq(spousesHandles).map((id) => ({ id: handleToId.get(id)! })),
-        notes: notes.find((note) => {
+        note: notes.find((note) => {
           return note.handle === person?.noteref?.hlink;
-        }),
+        })?.text,
+        birthDate: eventsForPerson?.type === "Birth" ? eventsForPerson?.dateval?.val : "",
+        deathDate: eventsForPerson?.type === "Death" ? eventsForPerson?.dateval?.val : "",
+        marriage: eventsForPerson?.type === "Marriage" ? eventsForPerson?.dateval?.val : "",
       };
     });
   }

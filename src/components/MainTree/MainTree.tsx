@@ -16,8 +16,8 @@ const Viewport = ({ className, children }: { className: string; children: React.
   </div>
 );
 
-const WIDTH = 140;
-const HEIGHT = 140;
+const WIDTH = 160;
+const HEIGHT = 170;
 
 const myID = "I0000";
 
@@ -42,8 +42,6 @@ const MainTreeProto = ({ familyTreeState }: any) => {
 
   const contentW = canvas.width * (WIDTH / 2);
   const contentH = canvas.height * (HEIGHT / 2);
-
-  console.log("nodes", nodes);
 
   return (
     <Viewport className={styles.root}>
@@ -92,11 +90,11 @@ const MainTreeProto = ({ familyTreeState }: any) => {
               <strong>ID:</strong> {selected?.id}
             </p>
             <p>
-              <strong>Name:</strong> {selected?.name}
+              <strong>Name:</strong> {selected?.name} {selected?.patronymic}
             </p>
-            {selected?.notes?.text && (
+            {selected?.note && (
               <p>
-                <strong>Заметка:</strong> {selected?.notes?.text}
+                <strong>Заметка:</strong> {selected?.note}
               </p>
             )}
           </DialogContentText>

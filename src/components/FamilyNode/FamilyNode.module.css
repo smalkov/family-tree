@@ -35,15 +35,10 @@
 
 .sub {
   position: absolute;
-  top: 59px;
-  right: 14px;
-  width: 14px;
-  height: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px 0;
-  background: #fff;
-  cursor: pointer;
-  text-align: center;
+  top: 74px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
 }
 
 .content {
