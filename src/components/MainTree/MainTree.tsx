@@ -92,11 +92,13 @@ const MainTreeProto = ({ familyTreeState }: any) => {
               <strong>ID:</strong> {selected?.id}
             </p>
             <p>
-              <strong>Gender:</strong> {selected?.gender}
-            </p>
-            <p>
               <strong>Name:</strong> {selected?.name}
             </p>
+            {selected?.notes?.text && (
+              <p>
+                <strong>Заметка:</strong> {selected?.notes?.text}
+              </p>
+            )}
           </DialogContentText>
         </DialogContent>
       </Dialog>

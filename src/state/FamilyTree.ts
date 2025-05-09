@@ -1,7 +1,17 @@
 import { makeObservable, observable, action } from "mobx";
-import type { Node, Relation } from "relatives-tree/lib/types";
+import type { Node as TreeNode, Relation, Gender } from "relatives-tree/lib/types";
+import { XMLParser } from "fast-xml-parser";
 
 const R = (id: string): Omit<Relation, "type"> => ({ id });
+
+interface Node extends TreeNode {
+  notes?: any[];
+}
+
+const toArray = <T>(x: T | T[] | undefined): T[] => (Array.isArray(x) ? x : x ? [x] : []);
+
+const uniq = (arr: any[]) => [...new Set(arr)];
+
 export class FamilyTree {
   public tree: Node[] | null = null;
   public isLoading = false;
@@ -10,9 +20,7 @@ export class FamilyTree {
     makeObservable(this, {
       tree: observable,
       isLoading: observable,
-      getTree: action,
-      extractName: action,
-      parseGrampsXml: action,
+      parseGramps: action,
       setTree: action,
     });
 
@@ -23,107 +31,106 @@ export class FamilyTree {
     this.tree = nodes;
   }
 
-  extractName(personEl: Element): string {
-    const first = personEl.querySelector("name > first")?.textContent?.trim();
-    const surname = personEl.querySelector("name > surname")?.textContent?.trim();
-    return [first, surname].filter(Boolean).join(" ") || personEl.getAttribute("id") || "Unknown";
-  }
+  parseGramps(db: any) {
+    const people = toArray(db.database.people.person);
+    const families = toArray(db.database.families.family);
+    const notes = toArray(db.database.notes.note);
 
-  async parseGrampsXml(xml: string): Promise<Node[]> {
-    const doc = new DOMParser().parseFromString(xml, "application/xml");
-    console.log("DOC", doc);
-
-    // ———————————————————————————————————————————————
-    // 1. Читаем всех людей; мапа handle→Node‑заготовка
-    // ———————————————————————————————————————————————
-    interface PartialNode extends Omit<Node, "parents" | "children" | "siblings" | "spouses"> {
-      parents: Set<string>;
-      children: Set<string>;
-      siblings: Set<string>;
-      spouses: Set<string>;
-    }
-
-    const byHandle = new Map<string, PartialNode>();
-
-    doc.querySelectorAll("person").forEach((p) => {
-      const handle = p.getAttribute("handle")!; // всегда есть
-      const id = p.getAttribute("id") || handle;
-      const genderText = p.querySelector("gender")?.textContent?.trim();
-      const gender: "m" | "f" | "u" = genderText === "M" ? "m" : genderText === "F" ? "f" : "u";
-      const node: PartialNode = {
-        id,
-        gender,
-        parents: new Set(),
-        children: new Set(),
-        siblings: new Set(),
-        spouses: new Set(),
-        // необязательные кастом‑поля можно сохранить сразу
-        name: this.extractName(p),
-      } as any;
-
-      byHandle.set(handle, node);
+    const handleToId = new Map<string, string>();
+    const idToHandle = new Map<string, string>();
+    people.forEach((p) => {
+      handleToId.set(p.handle, p.id);
+      idToHandle.set(p.id, p.handle);
     });
 
-    // ———————————————————————————————————————————————
-    // 2. Обрабатываем семьи → связи
-    // ———————————————————————————————————————————————
-    doc.querySelectorAll("family").forEach((f) => {
-      const fatherHandle = f.querySelector("father")?.getAttribute("hlink") || undefined;
-      const motherHandle = f.querySelector("mother")?.getAttribute("hlink") || undefined;
-      const childrenHandles = Array.from(f.querySelectorAll("childref"))
-        .map((c) => c.getAttribute("hlink")!)
-        .filter(Boolean);
+    const childInFamily = new Map<string, any[]>();
+    const parentInFamily = new Map<string, any[]>();
 
-      // супружеские связи
-      if (fatherHandle && motherHandle) {
-        byHandle.get(fatherHandle)?.spouses.add(byHandle.get(motherHandle)!.id);
-        byHandle.get(motherHandle)?.spouses.add(byHandle.get(fatherHandle)!.id);
+    families.forEach((fam) => {
+      ["father", "mother"].forEach((role) => {
+        const h = fam[role]?.hlink;
+        if (h) {
+          const arr = parentInFamily.get(h) ?? [];
+          arr.push(fam);
+          parentInFamily.set(h, arr);
+        }
+      });
+
+      toArray(fam.childref).forEach((child: any) => {
+        const h = child.hlink;
+        if (h) {
+          const arr = childInFamily.get(h) ?? [];
+          arr.push(fam);
+          childInFamily.set(h, arr);
+        }
+      });
+    });
+
+    return people.map<any>((person: any) => {
+      const hSelf = person.handle;
+
+      const parentsHandles = (childInFamily.get(hSelf) ?? [])
+        .flatMap((fam) => [fam.father?.hlink, fam.mother?.hlink])
+        .filter(Boolean) as string[];
+
+      const childrenHandles = (parentInFamily.get(hSelf) ?? []).flatMap((fam) =>
+        toArray(fam.childref).map((c: any) => c.hlink)
+      );
+
+      const siblingsHandles = (childInFamily.get(hSelf) ?? []).flatMap((fam) =>
+        toArray(fam.childref)
+          .map((c: any) => c.hlink)
+          .filter((h: string) => h !== hSelf)
+      );
+
+      const spousesHandles = (parentInFamily.get(hSelf) ?? []).flatMap((fam) => {
+        const other =
+          fam.father?.hlink === hSelf ? fam.mother?.hlink : fam.mother?.hlink === hSelf ? fam.father?.hlink : undefined;
+        return other ? [other] : [];
+      });
+
+      const first = person.name.first as string;
+
+      let surname = "";
+      if (Array.isArray(person.name.surname)) {
+        // ищем derivation === 'Given', иначе берём первое значение
+        const given = person.name.surname.find((s: any) => s.derivation === "Given");
+        surname = (given?.["#text"] ?? person.name.surname[0]["#text"]) as string;
+      } else if (typeof person.name.surname === "object") {
+        surname = person.name.surname["#text"] as string;
+      } else {
+        surname = person.name.surname as string;
       }
 
-      // родители ↔ дети
-      childrenHandles.forEach((chHandle) => {
-        const childId = byHandle.get(chHandle)?.id;
-        if (!childId) return;
-
-        if (fatherHandle) byHandle.get(fatherHandle)!.children.add(childId);
-        if (motherHandle) byHandle.get(motherHandle)!.children.add(childId);
-
-        if (fatherHandle) byHandle.get(chHandle)!.parents.add(byHandle.get(fatherHandle)!.id);
-        if (motherHandle) byHandle.get(chHandle)!.parents.add(byHandle.get(motherHandle)!.id);
-      });
-
-      // сиблинги: все дети одной семьи — друг другу братья/сёстры
-      childrenHandles.forEach((c1) => {
-        childrenHandles.forEach((c2) => {
-          if (c1 !== c2) byHandle.get(c1)!.siblings.add(byHandle.get(c2)!.id);
-        });
-      });
+      return {
+        id: person.id,
+        gender: (person.gender ?? "").toLowerCase() as Gender,
+        name: `${first} ${surname}`.trim(),
+        parents: uniq(parentsHandles).map((id) => ({ id: handleToId.get(id)! })),
+        children: uniq(childrenHandles).map((id) => ({ id: handleToId.get(id)! })),
+        siblings: uniq(siblingsHandles).map((id) => ({ id: handleToId.get(id)! })),
+        spouses: uniq(spousesHandles).map((id) => ({ id: handleToId.get(id)! })),
+        notes: notes.find((note) => {
+          return note.handle === person?.noteref?.hlink;
+        }),
+      };
     });
-
-    //@ts-ignore
-    const result: Node[] = Array.from(byHandle.values()).map((n) => ({
-      id: n.id,
-      gender: n.gender,
-      parents: Array.from(n.parents).map(R),
-      children: Array.from(n.children).map(R),
-      siblings: Array.from(n.siblings).map(R),
-      spouses: Array.from(n.spouses).map(R),
-      // дополнительные поля (например, name) копируем как есть
-      name: (n as any).name,
-    }));
-
-    return result;
   }
 
   async getTree() {
     try {
       this.isLoading = true;
+      const parser = new XMLParser({
+        ignoreAttributes: false,
+        attributeNamePrefix: "",
+      });
 
       const xml = await fetch("./static/data/family-tree.gramps").then((r) => {
         return r.text();
       });
+      const jsObj = parser.parse(xml);
 
-      const nodes = await this.parseGrampsXml(xml);
+      const nodes = await this.parseGramps(jsObj);
 
       this.setTree(nodes);
     } catch (err) {
