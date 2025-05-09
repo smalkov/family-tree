@@ -129,6 +129,7 @@ export class FamilyTree {
         return r.text();
       });
       const jsObj = parser.parse(xml);
+      console.log(jsObj);
 
       const nodes = await this.parseGramps(jsObj);
 
