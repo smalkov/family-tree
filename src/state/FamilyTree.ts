@@ -1,23 +1,25 @@
 import { makeObservable, observable, action } from "mobx";
-import type { Node as TreeNode, Relation, Gender } from "relatives-tree/lib/types";
+import type { ExtNode, Relation, Gender } from "relatives-tree/lib/types";
 import { XMLParser } from "fast-xml-parser";
 
 const R = (id: string): Omit<Relation, "type"> => ({ id });
 
-interface Node extends TreeNode {
-  notes?: any[];
+export interface IFamilyNode extends ExtNode {
+  note?: string;
   birthDate?: string;
   deathDate?: string;
   marriage?: string;
+  name?: string;
+  surname?: string;
+  surnameTaken?: string;
   patronymic?: string;
-  surnameGiven?: string;
 }
 
 const toArray = <T>(x: T | T[] | undefined): T[] => (Array.isArray(x) ? x : x ? [x] : []);
 const uniq = (arr: any[]) => Array.from(new Set(arr));
 
 export class FamilyTree {
-  public tree: Node[] | null = null;
+  public tree: IFamilyNode[] | null = null;
   public isLoading = false;
 
   constructor() {
@@ -31,11 +33,11 @@ export class FamilyTree {
     this.getTree();
   }
 
-  setTree(nodes: Node[]) {
+  setTree(nodes: IFamilyNode[]) {
     this.tree = nodes;
   }
 
-  parseGramps(db: any) {
+  parseGramps(db: any): IFamilyNode[] {
     const people = toArray(db.database.people.person);
     const families = toArray(db.database.families.family);
     const notes = toArray(db.database.notes.note);
@@ -71,7 +73,7 @@ export class FamilyTree {
       });
     });
 
-    return people.map<any>((person: any) => {
+    const parsedNotes = people.map<any>((person: any) => {
       const hSelf = person.handle;
 
       const parentsHandles = (childInFamily.get(hSelf) ?? [])
@@ -100,7 +102,6 @@ export class FamilyTree {
       let patronymic = "";
       let surnameTaken = "";
       if (Array.isArray(person.name.surname)) {
-        // ищем derivation === 'Given', иначе берём первое значение
         const taken = person.name.surname.find((s: any) => s.derivation === "Taken");
         const given = person.name.surname.find((s: any) => s.derivation === "Given");
         const patron = person.name.surname.find((s: any) => s.derivation === "Patronymic");
@@ -136,6 +137,8 @@ export class FamilyTree {
         marriage: eventsForPerson?.type === "Marriage" ? eventsForPerson?.dateval?.val : "",
       };
     });
+
+    return parsedNotes as IFamilyNode[];
   }
 
   async getTree() {
@@ -156,7 +159,7 @@ export class FamilyTree {
 
       this.setTree(nodes);
     } catch (err) {
-      console.log("FamilyTree getTree error:", err);
+      console.error("FamilyTree getTree error:", err);
     } finally {
       this.isLoading = false;
     }

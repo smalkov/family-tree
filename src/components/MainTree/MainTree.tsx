@@ -8,19 +8,28 @@ import calcTree from "relatives-tree";
 import styles from "./MainTree.module.css";
 import { FamilyNode } from "../FamilyNode";
 import { FamilyDialog } from "../FamilyDialog";
+import { IFamilyNode } from "src/state/FamilyTree";
 
 const WIDTH = 160;
-const HEIGHT = 170;
+const HEIGHT = 190;
 
 const myID = "I0000";
 
-const MainTreeProto = ({ familyTreeState }: any) => {
+interface IState {
+  tree: IFamilyNode[];
+  isLoading: boolean;
+}
+interface IProps {
+  familyTreeState: IState;
+}
+
+const MainTreeProto = ({ familyTreeState }: IProps) => {
   const [rootId, setRootId] = React.useState(myID);
-  const [selected, setSelected] = useState<any>(null);
+  const [selected, setSelected] = useState<IFamilyNode | null>(null);
 
   const { tree, isLoading } = familyTreeState;
 
-  const handleNodeClick = (n: any) => setSelected(n);
+  const handleNodeClick = (n: IFamilyNode) => setSelected(n);
 
   if (isLoading) {
     return <div style={{ textAlign: "center", marginTop: "100px" }}>Загрузка данных...</div>;

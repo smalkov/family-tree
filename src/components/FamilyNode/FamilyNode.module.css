@@ -1,19 +1,25 @@
 .root {
   position: absolute;
   display: flex;
-  padding: 16px;
-  /* align-items: center; */
   justify-content: center;
+  padding: 16px;
 }
 
 .inner {
   display: flex;
   flex: 1;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px 0;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  --frame-color: #c5a04e;
+  --bg: #c1d4e3;
+  background: var(--bg);
+  color: #1a1a1a;
+  border: 3px solid var(--frame-color);
+  border-radius: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }
 
 .inner .name {
@@ -22,11 +28,11 @@
 }
 
 .m {
-  background: #a4ecff;
+  --bg: #c1d4e3;
 }
 
 .f {
-  background: #fdaed8;
+  --bg: #f4d4dd;
 }
 
 .isRoot {
@@ -35,25 +41,8 @@
 
 .sub {
   position: absolute;
-  top: 74px;
+  top: 90px;
   left: 10px;
   width: 24px;
   height: 24px;
-}
-
-.content {
-  position: relative;
-  width: 100%;
-}
-
-.Before {
-  background-color: #efefef !important;
-}
-
-.sub.m {
-  background: #fdaed8;
-}
-
-.sub.f {
-  background: #a4ecff;
 }
