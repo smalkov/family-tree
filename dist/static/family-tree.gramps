@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE database PUBLIC "-//Gramps//DTD Gramps XML 1.7.2//EN"
+"http://gramps-project.org/xml/1.7.2/grampsxml.dtd">
+<database xmlns="http://gramps-project.org/xml/1.7.2/">
+  <header>
+    <created date="2025-05-11" version="6.0.1"/>
+    <researcher>
+    </researcher>
+  </header>
+  <events>
+    <event handle="_fe27270dcf96694ef29fa3c1140" change="1746525702" id="E0000">
+      <type>Birth</type>
+      <dateval val="1996-03-01"/>
+      <place hlink="_fe2726f4d77481a3724ea43c722"/>
+      <description>Родился Сережа</description>
+    </event>
+    <event handle="_fe2d88123785eb8e936c9c922b7" change="1746696936" id="E0001">
+      <type>Birth</type>
+      <dateval val="1996-03-01"/>
+    </event>
+    <event handle="_fe2d88c28c17ffbd85393c677b3" change="1746697008" id="E0002">
+      <type>Birth</type>
+      <dateval val="1997-02-24"/>
+    </event>
+    <event handle="_fe2d965a6663da625b8fabd269b" change="1746698434" id="E0003">
+      <type>Marriage</type>
+      <dateval val="2017-08-15"/>
+    </event>
+  </events>
+  <people>
+    <person handle="_fe2721522f77327047af278832f" change="1746780943" id="I0000">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Сергей</first>
+        <surname derivation="Given">Малков</surname>
+        <surname prim="0" derivation="Patronymic">Юрьевич</surname>
+      </name>
+      <eventref hlink="_fe2d88123785eb8e936c9c922b7" role="Primary"/>
+      <childof hlink="_fe2d813732831fe3c879ce259b5"/>
+      <parentin hlink="_fe2d956e428416411148338b18e"/>
+    </person>
+    <person handle="_fe2721b63f166fcfb79932235ed" change="1746707476" id="I0001">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Татьяна</first>
+        <surname derivation="Taken">Малкова</surname>
+        <surname prim="0" derivation="Given">Иванова</surname>
+        <surname prim="0" derivation="Patronymic">Эдуардовна</surname>
+        <nick>Солнышко</nick>
+      </name>
+      <eventref hlink="_fe2d88c28c17ffbd85393c677b3" role="Primary"/>
+      <childof hlink="_fe2d89d7168233c99dcdf43f114"/>
+      <parentin hlink="_fe2d956e428416411148338b18e"/>
+      <noteref hlink="_fe2dec915f525f8315e45499296"/>
+    </person>
+    <person handle="_fe2d8161a5b1286d28c99deedc4" change="1746705410" id="I0002">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Юрий</first>
+        <surname derivation="Given">Малков</surname>
+        <surname prim="0" derivation="Patronymic">Анатольевич</surname>
+      </name>
+      <childof hlink="_fe2dd77bc301cdef56b455470f3"/>
+      <parentin hlink="_fe2d813732831fe3c879ce259b5"/>
+    </person>
+    <person handle="_fe2d826505f4a9fc4325cc91120" change="1746706704" id="I0003">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Светлана</first>
+        <surname derivation="Taken">Малкова</surname>
+        <surname prim="0" derivation="Patronymic">Вячеславовна</surname>
+      </name>
+      <childof hlink="_fe2dc2f2ee26928637a46aae069"/>
+      <parentin hlink="_fe2d813732831fe3c879ce259b5"/>
+      <parentin hlink="_fe2de4c7b0b6b1e56ed34da4b12"/>
+    </person>
+    <person handle="_fe2d89ec11d46f053c2ed2b292f" change="1746700915" id="I0004">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Эдуард</first>
+        <surname derivation="Given">Иванов</surname>
+        <surname prim="0" derivation="Patronymic">Николаевич</surname>
+      </name>
+      <childof hlink="_fe2dad1b3137ee2a305048d1e75"/>
+      <parentin hlink="_fe2d89d7168233c99dcdf43f114"/>
+      <parentin hlink="_fe2d939dc1faf2c7fb1b76a3bf"/>
+    </person>
+    <person handle="_fe2d8a6619951bfd5815ca36e27" change="1746700517" id="I0005">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Taken">Иванова</surname>
+        <surname prim="0" derivation="Given">Толстокорова</surname>
+        <surname prim="0" derivation="Patronymic">Ивановна</surname>
+      </name>
+      <childof hlink="_fe2d9bcd04c4eee785bc46c7c06"/>
+      <parentin hlink="_fe2d89d7168233c99dcdf43f114"/>
+    </person>
+    <person handle="_fe2d93caf85a86ffc62e775727" change="1746699293" id="I0006">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Екатерина</first>
+        <surname derivation="Given">Еременко</surname>
+        <surname prim="0" derivation="Patronymic">Эдуардовна</surname>
+      </name>
+      <childof hlink="_fe2d939dc1faf2c7fb1b76a3bf"/>
+    </person>
+    <person handle="_fe2d9499a94d259368f4740e81" change="1746698976" id="I0007">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname>Мать Екатерины (сестра Тани)</surname>
+      </name>
+      <parentin hlink="_fe2d939dc1faf2c7fb1b76a3bf"/>
+    </person>
+    <person handle="_fe2d9cecc1d471c2ff4b42ec7c5" change="1746699226" id="I0008">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Иван</first>
+        <surname derivation="Given">Толстокоров</surname>
+        <surname prim="0" derivation="Patronymic">Данилович</surname>
+      </name>
+      <parentin hlink="_fe2d9bcd04c4eee785bc46c7c06"/>
+    </person>
+    <person handle="_fe2d9d5af1f2d492bbe21a33aa3" change="1746700685" id="I0009">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Людмила</first>
+        <surname derivation="Taken">Толстокорова</surname>
+        <surname prim="0" derivation="Given">Шавшина</surname>
+        <surname prim="0" derivation="Patronymic">Михайловна</surname>
+      </name>
+      <childof hlink="_fe2daa75c4b5ebf50814e0a5b89"/>
+      <parentin hlink="_fe2d9bcd04c4eee785bc46c7c06"/>
+    </person>
+    <person handle="_fe2daa8a9f16380cd975aa3f6e4" change="1746700634" id="I0010">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Михаил</first>
+        <surname derivation="Given">Шавшин</surname>
+      </name>
+      <parentin hlink="_fe2daa75c4b5ebf50814e0a5b89"/>
+    </person>
+    <person handle="_fe2daaba1de7763029f8615ef28" change="1746700742" id="I0011">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Лидия</first>
+        <surname derivation="Taken">Шавшина</surname>
+        <surname prim="0" derivation="Given">Ларькова</surname>
+        <surname prim="0" derivation="Patronymic">Константиновна</surname>
+      </name>
+      <childof hlink="_fe2dac00df848cbca52c37b69be"/>
+      <parentin hlink="_fe2daa75c4b5ebf50814e0a5b89"/>
+    </person>
+    <person handle="_fe2dac076b4701acf859ba9cdd7" change="1746700742" id="I0012">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Константин</first>
+        <surname derivation="Given">Ларьков</surname>
+      </name>
+      <parentin hlink="_fe2dac00df848cbca52c37b69be"/>
+    </person>
+    <person handle="_fe2dac3686317e6acead270b935" change="1746700742" id="I0013">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Мария</first>
+        <surname derivation="Taken">Ларькова</surname>
+      </name>
+      <parentin hlink="_fe2dac00df848cbca52c37b69be"/>
+    </person>
+    <person handle="_fe2dad2408a2ad4e26afccce0b4" change="1746700884" id="I0014">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Николай</first>
+        <surname derivation="Given">Иванов</surname>
+        <surname prim="0" derivation="Patronymic">Васильевич</surname>
+      </name>
+      <parentin hlink="_fe2dad1b3137ee2a305048d1e75"/>
+    </person>
+    <person handle="_fe2dad7bbd431c5b3bc1033f8bd" change="1746700884" id="I0015">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Татьяна</first>
+        <surname derivation="Taken">Иванова</surname>
+        <surname prim="0" derivation="Patronymic">Ивановна</surname>
+      </name>
+      <parentin hlink="_fe2dad1b3137ee2a305048d1e75"/>
+    </person>
+    <person handle="_fe2dcfc918f637ac1429c62b10d" change="1746704630" id="I0016">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Вячеслав</first>
+        <surname derivation="Given">Тетенов</surname>
+        <surname prim="0" derivation="Patronymic">Иванович</surname>
+      </name>
+      <childof hlink="_fe2dd124af646c0ada40cf90633"/>
+      <parentin hlink="_fe2dc2f2ee26928637a46aae069"/>
+    </person>
+    <person handle="_fe2dd0199423bb64d1166fca598" change="1746704773" id="I0017">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Антонина</first>
+        <surname derivation="Taken">Тетенова</surname>
+        <surname prim="0" derivation="Given">Калачева</surname>
+        <surname prim="0" derivation="Patronymic">Ивановна</surname>
+      </name>
+      <childof hlink="_fe2dd1edabb2a388d5f70693237"/>
+      <parentin hlink="_fe2dc2f2ee26928637a46aae069"/>
+    </person>
+    <person handle="_fe2dd13abd320f66f92fd49403c" change="1746704630" id="I0018">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Екатерина</first>
+        <surname derivation="Taken">Шмырина</surname>
+      </name>
+      <parentin hlink="_fe2dd124af646c0ada40cf90633"/>
+    </person>
+    <person handle="_fe2dd1f638279fd68f68b8bdcfa" change="1746704768" id="I0019">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Иван</first>
+        <surname derivation="Given">Калачев</surname>
+        <surname prim="0" derivation="Patronymic">Назарович</surname>
+      </name>
+      <parentin hlink="_fe2dd1edabb2a388d5f70693237"/>
+    </person>
+    <person handle="_fe2dd2357b78fee506e47a859f" change="1746705087" id="I0020">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Платонида</first>
+        <surname derivation="Taken">Калачева</surname>
+        <surname prim="0" derivation="Given">Коровина</surname>
+        <surname prim="0" derivation="Patronymic">Васильевна</surname>
+      </name>
+      <childof hlink="_fe2dd56b97517acc56e11ae4e4d"/>
+      <parentin hlink="_fe2dd1edabb2a388d5f70693237"/>
+    </person>
+    <person handle="_fe2dd57051fe406dce52df94f5" change="1746705082" id="I0021">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Василий</first>
+        <surname derivation="Given">Коровин</surname>
+      </name>
+      <parentin hlink="_fe2dd56b97517acc56e11ae4e4d"/>
+    </person>
+    <person handle="_fe2dd59fd502b8e002600c5c0d9" change="1746705082" id="I0022">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Taken">Коровина</surname>
+      </name>
+      <parentin hlink="_fe2dd56b97517acc56e11ae4e4d"/>
+    </person>
+    <person handle="_fe2dd78091fd478a9781541824" change="1746705402" id="I0023">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Анатолий</first>
+        <surname derivation="Given">Малков</surname>
+        <surname prim="0" derivation="Patronymic">Михайлович</surname>
+      </name>
+      <parentin hlink="_fe2dd77bc301cdef56b455470f3"/>
+    </person>
+    <person handle="_fe2dd85065334d397ba7550c9dd" change="1746705402" id="I0024">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Альбина</first>
+        <surname derivation="Taken">Малкова</surname>
+        <surname prim="0" derivation="Patronymic">Алексеевна</surname>
+      </name>
+      <parentin hlink="_fe2dd77bc301cdef56b455470f3"/>
+    </person>
+    <person handle="_fe2dd9334826090f09adbed2c49" change="1746706279" id="I0025">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Светлана</first>
+        <surname derivation="Taken">Разваляева</surname>
+        <surname prim="0" derivation="Given">Малкова</surname>
+        <surname prim="0" derivation="Patronymic">Анатольевна</surname>
+      </name>
+      <childof hlink="_fe2dd77bc301cdef56b455470f3"/>
+      <parentin hlink="_fe2ddd14818750006c8811eb868"/>
+      <parentin hlink="_fe2ddf7c654687cbb003fc7d10e"/>
+    </person>
+    <person handle="_fe2ddd22fdf3b713ad6debde8b3" change="1746706021" id="I0026">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Виктор</first>
+        <surname derivation="Given">Разваляев</surname>
+        <surname prim="0" derivation="Patronymic">Геннадьевич</surname>
+      </name>
+      <parentin hlink="_fe2ddd14818750006c8811eb868"/>
+    </person>
+    <person handle="_fe2ddda1c1f41d9c4a8d5701cf6" change="1746706021" id="I0027">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Анна</first>
+        <surname derivation="Given">Разваляева</surname>
+        <surname prim="0" derivation="Patronymic">Викторовна</surname>
+      </name>
+      <childof hlink="_fe2ddd14818750006c8811eb868"/>
+    </person>
+    <person handle="_fe2dde238fc49ce10cd5756bb8b" change="1746706593" id="I0028">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Кристина</first>
+        <surname derivation="Given">Васильченко</surname>
+        <surname prim="0" derivation="Patronymic">Игоревна</surname>
+      </name>
+      <childof hlink="_fe2ddd14818750006c8811eb868"/>
+      <childof hlink="_fe2ddf7c654687cbb003fc7d10e"/>
+      <parentin hlink="_fe2de3b25cf5c281178064c6d45"/>
+    </person>
+    <person handle="_fe2ddf8dbfd57b4b02c405df521" change="1746955730" id="I0029">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Игорь</first>
+        <surname derivation="Given">Васильченко</surname>
+      </name>
+      <childof hlink="_fe372bb0f5631c7b295468a62f3"/>
+      <parentin hlink="_fe2ddf7c654687cbb003fc7d10e"/>
+    </person>
+    <person handle="_fe2de341a21b6aedfcc3fa5e59" change="1746706593" id="I0031">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Ксения</first>
+        <surname derivation="Given">Хохлачева</surname>
+        <surname prim="0" derivation="Patronymic">Романовна</surname>
+        <datestr val=""/>
+      </name>
+      <childof hlink="_fe2de3b25cf5c281178064c6d45"/>
+    </person>
+    <person handle="_fe2de3c9385383e1c9d216e06eb" change="1746706593" id="I0032">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Роман</first>
+        <surname derivation="Given">Хохлачев</surname>
+        <surname prim="0" derivation="Patronymic">Павлович</surname>
+        <datestr val=""/>
+      </name>
+      <parentin hlink="_fe2de3b25cf5c281178064c6d45"/>
+    </person>
+    <person handle="_fe2de469a9d2cdcc8ca0c8ec255" change="1746780943" id="I0033">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Алексей</first>
+        <surname derivation="Given">Якимчук</surname>
+        <surname prim="0" derivation="Patronymic">Александрович</surname>
+        <datestr val=""/>
+      </name>
+      <childof hlink="_fe2de4c7b0b6b1e56ed34da4b12"/>
+      <parentin hlink="_fe2de64fa7539812442dab4dc9f"/>
+      <parentin hlink="_fe2de73191f2e39ad618d59d52e"/>
+    </person>
+    <person handle="_fe2de4e45635079cce9d0510bff" change="1746707127" id="I0034">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Александр</first>
+        <surname derivation="Given">Якимчук</surname>
+        <surname prim="0" derivation="Patronymic">Евгеньевич</surname>
+      </name>
+      <childof hlink="_fe2de8b9c933d5e088747d66a19"/>
+      <parentin hlink="_fe2de4c7b0b6b1e56ed34da4b12"/>
+      <parentin hlink="_fe2de8200e22b5c673a5dea53f4"/>
+    </person>
+    <person handle="_fe2de601ebd336678ed4502c43f" change="1746706859" id="I0035">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Марк</first>
+        <surname derivation="Given">Якимчук</surname>
+        <surname prim="0" derivation="Patronymic">Алексеевич</surname>
+      </name>
+      <childof hlink="_fe2de64fa7539812442dab4dc9f"/>
+    </person>
+    <person handle="_fe2de6895cd5c813974caf73bd2" change="1746706859" id="I0036">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Taken">Якимчук</surname>
+      </name>
+      <parentin hlink="_fe2de64fa7539812442dab4dc9f"/>
+    </person>
+    <person handle="_fe2de6cbdc05b399232c7269f02" change="1746706939" id="I0037">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Мария</first>
+        <surname derivation="Taken">Якимчук</surname>
+      </name>
+      <parentin hlink="_fe2de73191f2e39ad618d59d52e"/>
+    </person>
+    <person handle="_fe2de829d5352a1f68a22af2ca6" change="1746707057" id="I0038">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Taken">Якимчук</surname>
+        <surname prim="0" derivation="Given">Зайцева</surname>
+        <surname prim="0" derivation="Patronymic">Евгеньевна</surname>
+      </name>
+      <parentin hlink="_fe2de8200e22b5c673a5dea53f4"/>
+    </person>
+    <person handle="_fe2de8c96212963ada22dc53310" change="1746707127" id="I0039">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Евгений</first>
+        <surname derivation="Given">Якимчук</surname>
+      </name>
+      <parentin hlink="_fe2de8b9c933d5e088747d66a19"/>
+    </person>
+    <person handle="_fe2de8ebc5432dfc967da5a130a" change="1746707214" id="I0040">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Раиса</first>
+        <surname derivation="Taken">Якимчук</surname>
+        <surname prim="0" derivation="Given">Пономарева</surname>
+        <surname prim="0" derivation="Patronymic">Викторовна</surname>
+      </name>
+      <childof hlink="_fe2de95d4053189eef44e8b5fbe"/>
+      <parentin hlink="_fe2de8b9c933d5e088747d66a19"/>
+    </person>
+    <person handle="_fe2de96e91a2de647b4d7c85567" change="1746707214" id="I0041">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Виктор</first>
+        <surname derivation="Given">Пономарев</surname>
+        <surname prim="0" derivation="Patronymic">Мефодьевич</surname>
+        <datestr val=""/>
+      </name>
+      <parentin hlink="_fe2de95d4053189eef44e8b5fbe"/>
+    </person>
+    <person handle="_fe2de9cec1060e724fb7f5bf60f" change="1746707214" id="I0042">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Мария</first>
+        <surname derivation="Taken">Пономарева</surname>
+        <surname prim="0" derivation="Patronymic">Николаевна</surname>
+        <datestr val=""/>
+      </name>
+      <parentin hlink="_fe2de95d4053189eef44e8b5fbe"/>
+    </person>
+    <person handle="_fe37262bfde17a57c21858c13a4" change="1746955150" id="I0043">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Given">Якимчук</surname>
+        <surname prim="0" derivation="Taken">Зайцева</surname>
+        <surname prim="0" derivation="Patronymic">Евгеньева</surname>
+      </name>
+      <childof hlink="_fe2de8b9c933d5e088747d66a19"/>
+    </person>
+    <person handle="_fe372bca9774f1f1591b0a85a7f" change="1746955730" id="I0044">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Алексей</first>
+        <surname derivation="Given">Крайнов</surname>
+        <surname prim="0" derivation="Patronymic">Васильевич</surname>
+      </name>
+      <parentin hlink="_fe372bb0f5631c7b295468a62f3"/>
+    </person>
+  </people>
+  <families>
+    <family handle="_fe2d813732831fe3c879ce259b5" change="1746696388" id="F0000">
+      <rel type="Married"/>
+      <father hlink="_fe2d8161a5b1286d28c99deedc4"/>
+      <mother hlink="_fe2d826505f4a9fc4325cc91120"/>
+      <childref hlink="_fe2721522f77327047af278832f"/>
+    </family>
+    <family handle="_fe2d89d7168233c99dcdf43f114" change="1746698293" id="F0001">
+      <rel type="Civil Union"/>
+      <father hlink="_fe2d89ec11d46f053c2ed2b292f"/>
+      <mother hlink="_fe2d8a6619951bfd5815ca36e27"/>
+      <childref hlink="_fe2721b63f166fcfb79932235ed"/>
+    </family>
+    <family handle="_fe2d939dc1faf2c7fb1b76a3bf" change="1746699293" id="F0002">
+      <rel type="Unmarried"/>
+      <father hlink="_fe2d89ec11d46f053c2ed2b292f"/>
+      <mother hlink="_fe2d9499a94d259368f4740e81"/>
+      <childref hlink="_fe2d93caf85a86ffc62e775727"/>
+    </family>
+    <family handle="_fe2d956e428416411148338b18e" change="1746698469" id="F0003">
+      <rel type="Married"/>
+      <father hlink="_fe2721522f77327047af278832f"/>
+      <mother hlink="_fe2721b63f166fcfb79932235ed"/>
+      <eventref hlink="_fe2d965a6663da625b8fabd269b" role="Family"/>
+    </family>
+    <family handle="_fe2d9bcd04c4eee785bc46c7c06" change="1746699226" id="F0004">
+      <rel type="Unknown"/>
+      <father hlink="_fe2d9cecc1d471c2ff4b42ec7c5"/>
+      <mother hlink="_fe2d9d5af1f2d492bbe21a33aa3"/>
+      <childref hlink="_fe2d8a6619951bfd5815ca36e27"/>
+    </family>
+    <family handle="_fe2daa75c4b5ebf50814e0a5b89" change="1746700685" id="F0005">
+      <rel type="Married"/>
+      <father hlink="_fe2daa8a9f16380cd975aa3f6e4"/>
+      <mother hlink="_fe2daaba1de7763029f8615ef28"/>
+      <childref hlink="_fe2d9d5af1f2d492bbe21a33aa3"/>
+    </family>
+    <family handle="_fe2dac00df848cbca52c37b69be" change="1746700742" id="F0006">
+      <rel type="Unknown"/>
+      <father hlink="_fe2dac076b4701acf859ba9cdd7"/>
+      <mother hlink="_fe2dac3686317e6acead270b935"/>
+      <childref hlink="_fe2daaba1de7763029f8615ef28"/>
+    </family>
+    <family handle="_fe2dad1b3137ee2a305048d1e75" change="1746700915" id="F0007">
+      <rel type="Married"/>
+      <father hlink="_fe2dad2408a2ad4e26afccce0b4"/>
+      <mother hlink="_fe2dad7bbd431c5b3bc1033f8bd"/>
+      <childref hlink="_fe2d89ec11d46f053c2ed2b292f"/>
+    </family>
+    <family handle="_fe2dc2f2ee26928637a46aae069" change="1746704551" id="F0008">
+      <rel type="Married"/>
+      <father hlink="_fe2dcfc918f637ac1429c62b10d"/>
+      <mother hlink="_fe2dd0199423bb64d1166fca598"/>
+      <childref hlink="_fe2d826505f4a9fc4325cc91120"/>
+    </family>
+    <family handle="_fe2dd124af646c0ada40cf90633" change="1746704630" id="F0009">
+      <rel type="Unknown"/>
+      <mother hlink="_fe2dd13abd320f66f92fd49403c"/>
+      <childref hlink="_fe2dcfc918f637ac1429c62b10d"/>
+    </family>
+    <family handle="_fe2dd1edabb2a388d5f70693237" change="1746704773" id="F0010">
+      <rel type="Married"/>
+      <father hlink="_fe2dd1f638279fd68f68b8bdcfa"/>
+      <mother hlink="_fe2dd2357b78fee506e47a859f"/>
+      <childref hlink="_fe2dd0199423bb64d1166fca598"/>
+    </family>
+    <family handle="_fe2dd56b97517acc56e11ae4e4d" change="1746705087" id="F0011">
+      <rel type="Married"/>
+      <father hlink="_fe2dd57051fe406dce52df94f5"/>
+      <mother hlink="_fe2dd59fd502b8e002600c5c0d9"/>
+      <childref hlink="_fe2dd2357b78fee506e47a859f"/>
+    </family>
+    <family handle="_fe2dd77bc301cdef56b455470f3" change="1746705491" id="F0012">
+      <rel type="Married"/>
+      <father hlink="_fe2dd78091fd478a9781541824"/>
+      <mother hlink="_fe2dd85065334d397ba7550c9dd"/>
+      <childref hlink="_fe2d8161a5b1286d28c99deedc4"/>
+      <childref hlink="_fe2dd9334826090f09adbed2c49"/>
+    </family>
+    <family handle="_fe2ddd14818750006c8811eb868" change="1746706021" id="F0013">
+      <rel type="Разведены"/>
+      <father hlink="_fe2ddd22fdf3b713ad6debde8b3"/>
+      <mother hlink="_fe2dd9334826090f09adbed2c49"/>
+      <childref hlink="_fe2ddda1c1f41d9c4a8d5701cf6"/>
+      <childref hlink="_fe2dde238fc49ce10cd5756bb8b" frel="Stepchild"/>
+    </family>
+    <family handle="_fe2ddf7c654687cbb003fc7d10e" change="1746706279" id="F0014">
+      <rel type="Разведены"/>
+      <father hlink="_fe2ddf8dbfd57b4b02c405df521"/>
+      <mother hlink="_fe2dd9334826090f09adbed2c49"/>
+      <childref hlink="_fe2dde238fc49ce10cd5756bb8b"/>
+    </family>
+    <family handle="_fe2de3b25cf5c281178064c6d45" change="1746706593" id="F0015">
+      <rel type="Разведены"/>
+      <father hlink="_fe2de3c9385383e1c9d216e06eb"/>
+      <mother hlink="_fe2dde238fc49ce10cd5756bb8b"/>
+      <childref hlink="_fe2de341a21b6aedfcc3fa5e59"/>
+    </family>
+    <family handle="_fe2de4c7b0b6b1e56ed34da4b12" change="1746780943" id="F0016">
+      <rel type="Разведены"/>
+      <father hlink="_fe2de4e45635079cce9d0510bff"/>
+      <mother hlink="_fe2d826505f4a9fc4325cc91120"/>
+      <childref hlink="_fe2de469a9d2cdcc8ca0c8ec255"/>
+    </family>
+    <family handle="_fe2de64fa7539812442dab4dc9f" change="1746706859" id="F0017">
+      <rel type="Разведены"/>
+      <father hlink="_fe2de469a9d2cdcc8ca0c8ec255"/>
+      <mother hlink="_fe2de6895cd5c813974caf73bd2"/>
+      <childref hlink="_fe2de601ebd336678ed4502c43f"/>
+    </family>
+    <family handle="_fe2de73191f2e39ad618d59d52e" change="1746706939" id="F0018">
+      <rel type="Married"/>
+      <father hlink="_fe2de469a9d2cdcc8ca0c8ec255"/>
+      <mother hlink="_fe2de6cbdc05b399232c7269f02"/>
+    </family>
+    <family handle="_fe2de8200e22b5c673a5dea53f4" change="1746707057" id="F0019">
+      <rel type="Unknown"/>
+      <father hlink="_fe2de4e45635079cce9d0510bff"/>
+      <mother hlink="_fe2de829d5352a1f68a22af2ca6"/>
+    </family>
+    <family handle="_fe2de8b9c933d5e088747d66a19" change="1746955150" id="F0020">
+      <rel type="Married"/>
+      <father hlink="_fe2de8c96212963ada22dc53310"/>
+      <mother hlink="_fe2de8ebc5432dfc967da5a130a"/>
+      <childref hlink="_fe2de4e45635079cce9d0510bff"/>
+      <childref hlink="_fe37262bfde17a57c21858c13a4"/>
+    </family>
+    <family handle="_fe2de95d4053189eef44e8b5fbe" change="1746707214" id="F0021">
+      <rel type="Unknown"/>
+      <father hlink="_fe2de96e91a2de647b4d7c85567"/>
+      <mother hlink="_fe2de9cec1060e724fb7f5bf60f"/>
+      <childref hlink="_fe2de8ebc5432dfc967da5a130a"/>
+    </family>
+    <family handle="_fe372bb0f5631c7b295468a62f3" change="1746955730" id="F0022">
+      <rel type="Unknown"/>
+      <father hlink="_fe372bca9774f1f1591b0a85a7f"/>
+      <childref hlink="_fe2ddf8dbfd57b4b02c405df521"/>
+    </family>
+  </families>
+  <places>
+    <placeobj handle="_fe2726f4d77481a3724ea43c722" change="1746525692" id="P0000" type="Unknown">
+      <pname value="Ростовская область, город Шахты, улица Азовка"/>
+    </placeobj>
+  </places>
+  <notes>
+    <note handle="_fe2dec915f525f8315e45499296" change="1746707474" id="N0000" type="Person Note">
+      <text>Программист, любит животных и путешествия</text>
+    </note>
+  </notes>
+  <namemaps>
+    <map type="group_as" key="Иванов" value="Ивановы"/>
+    <map type="group_as" key="Иванова" value="Ивановы"/>
+    <map type="group_as" key="Калачев" value="Калачевы"/>
+    <map type="group_as" key="Калачева" value="Калачевы"/>
+    <map type="group_as" key="Коровин" value="Коровины"/>
+    <map type="group_as" key="Коровина" value="Коровины"/>
+    <map type="group_as" key="Ларьков" value="Ларьковы"/>
+    <map type="group_as" key="Ларькова" value="Ларьковы"/>
+    <map type="group_as" key="Малков" value="Малковы"/>
+    <map type="group_as" key="Малкова" value="Малковы"/>
+    <map type="group_as" key="Пономарев" value="Пономаревы"/>
+    <map type="group_as" key="Пономарева" value="Пономаревы"/>
+    <map type="group_as" key="Разваляев" value="Разваляевы"/>
+    <map type="group_as" key="Разваляева" value="Разваляевы"/>
+    <map type="group_as" key="Тетенов" value="Тетеновы"/>
+    <map type="group_as" key="Тетенова" value="Тетеновы"/>
+    <map type="group_as" key="Толстокоров" value="Толстокоровы"/>
+    <map type="group_as" key="Толстокорова" value="Толстокоровы"/>
+    <map type="group_as" key="Хохлачев" value="Хохлачевы"/>
+    <map type="group_as" key="Хохлачева" value="Хохлачевы"/>
+    <map type="group_as" key="Шавшин" value="Шавшины"/>
+    <map type="group_as" key="Шавшина" value="Шавшины"/>
+    <map type="group_as" key="Шмырина" value="Шмырины"/>
+    <map type="group_as" key="Якимчук" value="Якимчуки"/>
+  </namemaps>
+</database>
