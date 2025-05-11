@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, IconButton, Link } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { IFamilyNode } from "src/state/FamilyTree";
+import { CONTACT_LINK_WATSAPP } from "../consts";
 
 interface IProps {
   selected: IFamilyNode;
@@ -25,32 +26,54 @@ export const FamilyDialog = ({ selected, setSelected }: IProps) => {
       <DialogContent dividers>
         <DialogContentText component="div">
           <p>
+            <strong>ФИО: </strong>
             {selected?.name} {selected?.surname} {surnameTaken} {selected?.patronymic}
           </p>
         </DialogContentText>
 
         <DialogContentText>
           <strong>Дата рождения: </strong>
-          {selected?.birthDate}
+          {selected?.birthDate || "-"}
 
-          {selected?.birthDate && (
-            <>
+          {selected?.deathDate && (
+            <p>
               <strong>Дата смерти: </strong>
               {selected?.deathDate}
-            </>
+            </p>
           )}
         </DialogContentText>
 
-        <DialogContentText>{selected?.note && <p>{selected?.note}</p>}</DialogContentText>
+        <DialogContentText
+          sx={{
+            wordBreak: "break-word",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {
+            <p>
+              <strong>Что известно: </strong>
+              {selected?.note ?? (
+                <p>
+                  Пока ничего. Сообщите любую известную информацию{" "}
+                  <Link underline="none" target="_blank" href={CONTACT_LINK_WATSAPP}>
+                    автору
+                  </Link>
+                  .
+                </p>
+              )}
+            </p>
+          }
+        </DialogContentText>
 
         <DialogContentText>
-          <p style={{ fontSize: "14px", textAlign: "right", margin: "20px 0 0 0" }}>
-            Можете сообщить подробности? Свяжитесь с{" "}
+          <p style={{ fontSize: "14px", textAlign: "right", margin: "40px 0 0 0" }}>
+            Можете сообщить подробности, поделиться фото? Свяжитесь с{" "}
             {
-              <Link underline="none" target="_blank" href={"https://wa.me/+79650723020"}>
+              <Link underline="none" target="_blank" href={CONTACT_LINK_WATSAPP}>
                 автором
               </Link>
             }
+            .
           </p>
         </DialogContentText>
       </DialogContent>
