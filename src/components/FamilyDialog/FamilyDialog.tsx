@@ -5,7 +5,7 @@ import { IFamilyNode } from "src/state/FamilyTree";
 import { CONTACT_LINK_WATSAPP } from "../consts";
 
 interface IProps {
-  selected: IFamilyNode;
+  selected: IFamilyNode | null;
   setSelected: Dispatch<SetStateAction<IFamilyNode | null>>;
 }
 
@@ -13,7 +13,7 @@ export const FamilyDialog = ({ selected, setSelected }: IProps) => {
   const surnameTaken = selected?.surnameTaken ? `(${selected?.surnameTaken})` : "";
   const handleClose = () => setSelected(null);
 
-  console.log("selected", selected);
+  //   console.log("selected", selected);
 
   return (
     <Dialog open={!!selected} onClose={handleClose} maxWidth="sm" fullWidth>

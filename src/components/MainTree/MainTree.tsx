@@ -38,7 +38,7 @@ const MainTreeProto = ({ familyTreeState }: IProps) => {
   if (!tree?.length) {
     return <div style={{ textAlign: "center", marginTop: "100px" }}>Нет данных</div>;
   }
-  console.log("full tree", toJS(tree));
+  // console.log("full tree", toJS(tree));
 
   const { nodes, canvas } = calcTree(tree, { rootId: rootId });
 
