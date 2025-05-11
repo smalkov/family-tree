@@ -1,23 +1,34 @@
 .root {
   display: flex;
   flex-direction: column;
-  background: #eee;
-  height: 100vh;
+  background-image: linear-gradient(130deg, #fbf6e6 0%, #ece0c4 100%),
+    repeating-radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 0, 0, 0.04) 0,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 2px,
+      transparent 5px
+    );
+  background-blend-mode: multiply;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .wrapper {
-  flex: 1;
   width: 100%;
   height: 100%;
 }
 
 .tree {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  background: #fff;
-  /* border: 5px solid #ddd; */
-  /* border-radius: 4px; */
-  width: 100% !important;
-  height: 100% !important;
+  background-image: radial-gradient(circle at 50% 50%, #ffffff 0%, #fafafa 70%, #f0f0f0 100%),
+    repeating-radial-gradient(
+      circle at 10% 10%,
+      rgba(0, 0, 0, 0.02) 0,
+      rgba(0, 0, 0, 0.02) 0.8px,
+      transparent 1.2px,
+      transparent 3px
+    );
+  background-blend-mode: multiply;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1) inset;
 }

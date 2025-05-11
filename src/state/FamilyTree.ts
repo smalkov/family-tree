@@ -14,8 +14,7 @@ interface Node extends TreeNode {
 }
 
 const toArray = <T>(x: T | T[] | undefined): T[] => (Array.isArray(x) ? x : x ? [x] : []);
-
-const uniq = (arr: any[]) => [...new Set(arr)];
+const uniq = (arr: any[]) => Array.from(new Set(arr));
 
 export class FamilyTree {
   public tree: Node[] | null = null;
