@@ -3,7 +3,7 @@
 "http://gramps-project.org/xml/1.7.2/grampsxml.dtd">
 <database xmlns="http://gramps-project.org/xml/1.7.2/">
   <header>
-    <created date="2025-05-09" version="6.0.1"/>
+    <created date="2025-05-11" version="6.0.1"/>
     <researcher>
     </researcher>
   </header>
@@ -310,12 +310,13 @@
       <childof hlink="_fe2ddf7c654687cbb003fc7d10e"/>
       <parentin hlink="_fe2de3b25cf5c281178064c6d45"/>
     </person>
-    <person handle="_fe2ddf8dbfd57b4b02c405df521" change="1746706130" id="I0029">
+    <person handle="_fe2ddf8dbfd57b4b02c405df521" change="1746955730" id="I0029">
       <gender>M</gender>
       <name type="Birth Name">
         <first>Игорь</first>
         <surname derivation="Given">Васильченко</surname>
       </name>
+      <childof hlink="_fe372bb0f5631c7b295468a62f3"/>
       <parentin hlink="_fe2ddf7c654687cbb003fc7d10e"/>
     </person>
     <person handle="_fe2de341a21b6aedfcc3fa5e59" change="1746706593" id="I0031">
@@ -434,6 +435,25 @@
         <datestr val=""/>
       </name>
       <parentin hlink="_fe2de95d4053189eef44e8b5fbe"/>
+    </person>
+    <person handle="_fe37262bfde17a57c21858c13a4" change="1746955150" id="I0043">
+      <gender>F</gender>
+      <name type="Birth Name">
+        <first>Наталья</first>
+        <surname derivation="Given">Якимчук</surname>
+        <surname prim="0" derivation="Taken">Зайцева</surname>
+        <surname prim="0" derivation="Patronymic">Евгеньева</surname>
+      </name>
+      <childof hlink="_fe2de8b9c933d5e088747d66a19"/>
+    </person>
+    <person handle="_fe372bca9774f1f1591b0a85a7f" change="1746955730" id="I0044">
+      <gender>M</gender>
+      <name type="Birth Name">
+        <first>Алексей</first>
+        <surname derivation="Given">Крайнов</surname>
+        <surname prim="0" derivation="Patronymic">Васильевич</surname>
+      </name>
+      <parentin hlink="_fe372bb0f5631c7b295468a62f3"/>
     </person>
   </people>
   <families>
@@ -556,17 +576,23 @@
       <father hlink="_fe2de4e45635079cce9d0510bff"/>
       <mother hlink="_fe2de829d5352a1f68a22af2ca6"/>
     </family>
-    <family handle="_fe2de8b9c933d5e088747d66a19" change="1746707127" id="F0020">
+    <family handle="_fe2de8b9c933d5e088747d66a19" change="1746955150" id="F0020">
       <rel type="Married"/>
       <father hlink="_fe2de8c96212963ada22dc53310"/>
       <mother hlink="_fe2de8ebc5432dfc967da5a130a"/>
       <childref hlink="_fe2de4e45635079cce9d0510bff"/>
+      <childref hlink="_fe37262bfde17a57c21858c13a4"/>
     </family>
     <family handle="_fe2de95d4053189eef44e8b5fbe" change="1746707214" id="F0021">
       <rel type="Unknown"/>
       <father hlink="_fe2de96e91a2de647b4d7c85567"/>
       <mother hlink="_fe2de9cec1060e724fb7f5bf60f"/>
       <childref hlink="_fe2de8ebc5432dfc967da5a130a"/>
+    </family>
+    <family handle="_fe372bb0f5631c7b295468a62f3" change="1746955730" id="F0022">
+      <rel type="Unknown"/>
+      <father hlink="_fe372bca9774f1f1591b0a85a7f"/>
+      <childref hlink="_fe2ddf8dbfd57b4b02c405df521"/>
     </family>
   </families>
   <places>
