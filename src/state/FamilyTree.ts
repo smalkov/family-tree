@@ -149,7 +149,7 @@ export class FamilyTree {
         attributeNamePrefix: "",
       });
 
-      const xml = await fetch("./static/data/family-tree.gramps").then((r) => {
+      const xml = await fetch("./static/family-tree.gramps").then((r) => {
         return r.text();
       });
       const jsObj = parser.parse(xml);
